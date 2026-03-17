@@ -19,7 +19,7 @@
  * @author Avoy
  * @version 1.0
  */
-public class PalindromeCheckerApp {
+public class PallindromeCheckerApp {
 
     /**
      * Application entry point.
