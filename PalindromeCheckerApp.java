@@ -1,39 +1,73 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
 /**
- * MAIN CLASS - PalindromeCheckerApp
+ * MAIN CLASS - PallindromeCheckerApp
  *
- * Use Case 1: Application Entry & Welcome Message
+ * Use Case 8: Linked List Based Palindrome Checker
  *
  * Description:
- * This class represents the entry point of the
- * Palindrome Checker Application.
+ * This class checks whether a string is a palindrome
+ * using a LinkedList.
  *
- * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application version
+ * Characters are added to the list and then compared
+ * by removing elements from both ends:
  *
- * No palindrome logic is implemented yet.
+ * - removeFirst()
+ * - removeLast()
  *
- * The goal is to establish a clear startup flow.
+ * This demonstrates how LinkedList supports
+ * double-ended operations for symmetric validation.
  *
  * @author Avoy
- * @version 1.0
+ * @version 8.0
  */
 public class PalindromeCheckerApp {
 
     /**
-     * Application entry point.
-     *
-     * This is the first method executed by the JVM
-     * when the program starts.
+     * Application entry point for UC8.
      *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
 
-        System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version : 1.0");
-        System.out.println("System initialized successfully.");
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("=== UC8: LinkedList Based Palindrome Checker ===");
+        System.out.print("Enter a word: ");
+        String input = scanner.nextLine();
+
+        // Convert input to lowercase for case-insensitive comparison
+        input = input.toLowerCase();
+
+        // Create LinkedList of Characters
+        LinkedList<Character> charList = new LinkedList<>();
+
+        // Add characters to LinkedList
+        for (char ch : input.toCharArray()) {
+            charList.add(ch);
+        }
+
+        boolean isPalindrome = true;
+
+        // Compare characters from both ends
+        while (charList.size() > 1) {
+            char first = charList.removeFirst();
+            char last = charList.removeLast();
+
+            if (first != last) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Display Result
+        if (isPalindrome) {
+            System.out.println("\"" + input + "\" is a Palindrome.");
+        } else {
+            System.out.println("\"" + input + "\" is NOT a Palindrome.");
+        }
+
+        scanner.close();
     }
 }
