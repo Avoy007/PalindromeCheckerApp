@@ -23,7 +23,7 @@
 
 import java.util.Scanner;
 
-public class  PallindromeCheckerApp{
+public class  PalindromeCheckerApp{
 
     /**
      * Application entry point for UC3.
