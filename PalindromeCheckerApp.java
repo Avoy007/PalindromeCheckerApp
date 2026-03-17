@@ -1,39 +1,60 @@
 /**
- * MAIN CLASS - PalindromeCheckerApp
+ * MAIN CLASS - PallindromeCheckerApp
  *
- * Use Case 1: Application Entry & Welcome Message
+ * Use Case 5: Stack Based Palindrome Checker
  *
  * Description:
- * This class represents the entry point of the
- * Palindrome Checker Application.
+ * This class validates whether a given string is a palindrome
+ * using a Stack data structure which follows the LIFO principle.
  *
  * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application version
+ * - Pushes characters into a stack
+ * - Pops them in reverse order
+ * - Compares with original sequence
+ * - Displays the result
  *
- * No palindrome logic is implemented yet.
- *
- * The goal is to establish a clear startup flow.
+ * This maps stack behavior to reversal logic.
  *
  * @author Avoy
- * @version 1.0
+ * @version 5.0
  */
+
+import java.util.Scanner;
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
 
     /**
-     * Application entry point.
-     *
-     * This is the first method executed by the JVM
-     * when the program starts.
+     * Application entry point for UC5.
      *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
 
-        System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version : 1.0");
-        System.out.println("System initialized successfully.");
+        Scanner scanner = new Scanner(System.in);
+        Stack<Character> stack = new Stack<>();
 
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        // Push characters into stack
+        for (char ch : input.toCharArray()) {
+            stack.push(ch);
+        }
+
+        // Pop characters to build reversed string
+        String reversed = "";
+        while (!stack.isEmpty()) {
+            reversed += stack.pop();
+        }
+
+        // Compare original and reversed string
+        if (input.equals(reversed)) {
+            System.out.println( input + " is a Palindrome.");
+        } else {
+            System.out.println(input + " is not a Palindrome.");
+        }
+
+        scanner.close();
     }
 }
