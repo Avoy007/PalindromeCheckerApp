@@ -20,7 +20,7 @@
  * @author Avoy
  * @version 2.0
  */
-public class PalindromeCheckerApp {
+public class PallindromeCheckerApp {
 
     /**
      * Application entry point for UC2.
