@@ -1,39 +1,66 @@
 /**
  * MAIN CLASS - PalindromeCheckerApp
  *
- * Use Case 1: Application Entry & Welcome Message
+ * Use Case 4: Character Array Based Validation
  *
  * Description:
- * This class represents the entry point of the
- * Palindrome Checker Application.
+ * This class validates a palindrome by converting
+ * the string into a character array and comparing
+ * characters using the two-pointer technique.
  *
  * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application version
+ * - Converts string to char array
+ * - Uses start and end pointers
+ * - Compares characters efficiently
+ * - Displays the result
  *
- * No palindrome logic is implemented yet.
- *
- * The goal is to establish a clear startup flow.
+ * This reduces extra memory usage.
  *
  * @author Avoy
- * @version 1.0
+ * @version 4.0
  */
+
+import java.util.Scanner;
+
 public class PalindromeCheckerApp {
 
     /**
-     * Application entry point.
+     * Application entry point for UC4.
      *
-     * This is the first method executed by the JVM
-     * when the program starts.
-     *
-     * @param args Command-line arguments
+     * @param args Command-Line arguments
      */
     public static void main(String[] args) {
 
-        System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version : 1.0");
-        System.out.println("System initialized successfully.");
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("=== UC4: Character Array Based Palindrome Check ===");
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        // Convert string to character array
+        char[] charArray = input.toCharArray();
+
+        int start = 0;
+        int end = charArray.length - 1;
+        boolean isPalindrome = true;
+
+        // Two-pointer comparison
+        while (start < end) {
+            if (charArray[start] != charArray[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        // Display result
+        if (isPalindrome) {
+            System.out.println(input +  " is a Palindrome.");
+        } else {
+            System.out.println(input +  " is not a Palindrome.");
+        }
+
+        scanner.close();
     }
 }
